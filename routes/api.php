@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TasksController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UsersController;
 
@@ -24,11 +24,13 @@ use App\Http\Controllers\UsersController;
 
 // Task Routes
 Route::middleware('auth:api')->group(function () {
-    Route::get('/tasks', [TaskController::class, 'index']);
-    Route::get('/tasks/{userName}', [TaskController::class, 'show']);
-    Route::post('/tasks', [TaskController::class, 'store']);
-    Route::put('/tasks/{userName}', [TaskController::class, 'update']);
-    Route::delete('/tasks/{userName}', [TaskController::class, 'destroy']);
+    Route::get('/tasks', [TasksController::class, 'index']);
+    Route::get('/tasks/{id}', [TasksController::class, 'show']);
+    Route::post('/tasks', [TasksController::class, 'store']);
+    Route::put('/tasks/{id}', [TasksController::class, 'update']);
+    Route::delete('/tasks/{id}', [TasksController::class, 'destroy']);
+
+    Route::get('/tasks2/{id}', [TasksController::class, 'show2']);
 });
 
 // Category Routes

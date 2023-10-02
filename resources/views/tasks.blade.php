@@ -32,15 +32,17 @@
 
             $('#tabelTasks').DataTable({
                 ajax: {
-                    url: '/api/tasks',
-                    data: {
-                        user_name: '{{ session('user_email') }}'
-                    },
+                    url: '/api/tasks' + '{{ session('user_email') }}',
                     dataSrc: '',
                     headers: {
                         //'Authorization': 'Bearer ' + '{{ Auth::user()->api_token }}'
                         'Authorization': 'Bearer ' +
                             'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4IiwianRpIjoiOTEyNzAyYTQwNzZiM2Q2NmFjNjljZTc5YzhmMmRjYjgyMmJlNWU4NGI5ZDQ1M2ZiMTIwMzJhMGYzNjE3MjZmZDZhZmU1ZjJhMTQwZDk5M2YiLCJpYXQiOjE2OTYwOTA5NTMuNjkzMDM5LCJuYmYiOjE2OTYwOTA5NTMuNjkzMDU1LCJleHAiOjE3Mjc3MTMzNTMuMjA5MTc4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.QgInH2t273RPmhoEUrCOdub1eqfDwWRUhkhUoziR6VACEHT354tTO-W3NbDFK2rqa_lPo3J7ps6wR9ARBPUtqrDfhX5YeCSrB4zG_jDxsoUE86RFc3RmsHb2JepWkckykFwhnxJAECVdk0xT39_klB6r6WLmvXxz-cDb7EHdwCFhAby0LZoUoiNzoyHeQ5Bwrg9iDp_NkRP4JFSretnz1D0ZktIffJptrXVMv-695QyThkGeioyJhBYWijs5mZUydGW6QwLbNck91KNBKWPtZQCivKaONQnUYaJMJZPARt0eZE2G9E5k4sG-Jr4JkqDUi_ds3it0ehkw-apmlSNdPwX9OxfR3p3cfvvaavvxvov0M-Xz-g85p7Pv1PYADaqrxEtgxYpgNz7op4SWbrhhzA85vzC4ZlJlPHdxqGu_OzISyzrh-qHQdQ920nN8xrwJPB-zXhSSekuk29hYv4qI3QKZPzr8kgQnSe3-0cnuAN7MGQSV7DYPrgW68ZDkV5E0ifX2AKTxjLHtAb8aoO3czzreXkkmDRk36lkmP0KDzg2k-Fp5cmei7ZHgHJP8J_VLKpbt40dx4JBf3Hy3-juuZQoT-IRMfBSgJpfls5r7rh9GhYQJYRTmE2fFPvrgs5lbOLN6A4MFRYFxYfDdTlTHIm2yZcrreYCBJFX13mcxfjY'
+                    },
+                    error: function(error) {
+                        // Handle error, tampilkan pesan atau tindakan yang sesuai
+                        console.error('Error:', error);
+                        console.log('Server Response:', error.responseJSON);
                     }
                 },
                 columns: [{

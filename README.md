@@ -5,3 +5,7 @@ untuk folder vendor di extract terlebih dahulu karena berbentuk vendor.rar
 simple task aplikasi ini menggunakan OAUTH untuk memproteksi API nya
 
 ![ptimp](https://github.com/widhi79/tasklaravel/assets/128588859/f8d6f1d1-53aa-4929-a9f5-24456043f56d)
+
+untuk get bearer tokennya seperti dibawah ini
+
+![oauth](https://github.com/widhi79/tasklaravel/assets/128588859/83e10d30-2e1b-484e-baf9-c437884f16b1)

@@ -19,9 +19,9 @@ class Task extends Model
     }
 
     // Relasi dengan model User
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_name', 'email');
-    }
+    //public function user()
+    //{
+    //    return $this->belongsTo(User::class, 'user_name', 'email');
+    //}
 
 }

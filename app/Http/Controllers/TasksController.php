@@ -12,16 +12,24 @@ class TasksController extends Controller
         return view('tasks');
     }
 
-    public function show($userName)
+    public function index()
+    {
+        // Retrieve all categories
+        $task = Task::all();
+
+        return response()->json($task);
+    }
+
+    public function show($id)
     {
         // Retrieve a specific category
-        //$task = Task::findOrFail($id);
+        $task = Task::findOrFail($id);
 
         // Retrieve a specific user
-        $user = User::where('email', $userName)->firstOrFail();
+        //$user = User::where('email', $userName)->firstOrFail();
 
         // Retrieve tasks for the user
-        $tasks = Task::where('user_name', $userName)->get();
+        //$tasks = Task::where('user_name', $userName)->get();
 
 
         return response()->json($task);

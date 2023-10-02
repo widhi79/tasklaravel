@@ -32,7 +32,7 @@
 
             $('#tabelTasks').DataTable({
                 ajax: {
-                    url: '/api/tasks' + '{{ session('user_email') }}',
+                    url: '/api/tasks',
                     dataSrc: '',
                     headers: {
                         //'Authorization': 'Bearer ' + '{{ Auth::user()->api_token }}'
